@@ -32,8 +32,8 @@ public class AppointmentEntity {
     @Column(name = "worker_name", nullable = true)
     private String medicalWorkerName;
 
-    @Column(name = "with_nurse", nullable = true)
-    private Boolean isWithNurse;
+    @Column(name = "with_counselor", nullable = true)
+    private Boolean isWithCounselor;
 
     @Column(name = "date", nullable = true)
     private LocalDate appDate;
@@ -130,12 +130,12 @@ public class AppointmentEntity {
         this.medicalWorkerName = medicalWorkerName;
     }
 
-    public Boolean isWithNurse() {
-        return isWithNurse;
+    public Boolean isWithCounselor() {
+        return isWithCounselor;
     }
 
-    public void setWithNurse(Boolean withNurse) {
-        isWithNurse = withNurse;
+    public void setWithCounselor(Boolean withCounselor) {
+        isWithCounselor = withCounselor;
     }
 }
 
