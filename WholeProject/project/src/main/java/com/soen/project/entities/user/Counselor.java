@@ -11,7 +11,7 @@ import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "nurse")
+@Table(name = "counselor")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
