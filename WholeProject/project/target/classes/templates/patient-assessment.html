@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <link rel='stylesheet' href='../static/css/tailwind.css'>
+  <script src='../static/js/patient-assessment.js' defer></script>
+  <title>Patient Assessment</title>
+</head>
+<body class='h-screen'>
+<main class='container mx-auto h-3/6'>
+  <header class='w-full h-full bg-origin-border bg-center text-4xl font-bold text-white tracking-tight relative p-9' style='background-image: url("../static/img/mental-health.webp")'>
+    <span class='absolute top-1/2'>Patient Health Questionnaire</span>
+  </header>
+  <section class='text-slate-600 pb-10 mt-20 space-y-12 question-wrapper'>
+    <section class='w-9/12 mx-auto' data-property='interest'>
+      <div class='w-3/4 mx-auto space-y-3'>
+        <p>Question 1</p>
+        <p>Over the past 2 weeks, how often have you been bothered by any of the following problems: <b>Little interest or pleasure in doing things?</b></p>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Not At all</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Several Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>More Than Half the Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Nearly Every Day</button>
+      </div>
+    </section>
+    <section class='w-9/12 mx-auto' data-property='feeling'>
+      <div class='w-3/4 mx-auto space-y-3'>
+        <p>Question 2</p>
+        <p>Over the past 2 weeks, how often have you been bothered by any of the following problems: <b>Feeling down, depressed or hopeless?</b></p>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Not At all</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Several Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>More Than Half the Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Nearly Every Day</button>
+      </div>
+    </section>
+    <section class='w-9/12 mx-auto' data-property='sleep'>
+      <div class='w-3/4 mx-auto space-y-3'>
+        <p>Question 3</p>
+        <p>Over the past 2 weeks, how often have you been bothered by any of the following problems: <b>Trouble falling asleep, staying asleep, or sleeping too much?</b></p>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Not At all</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Several Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>More Than Half the Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Nearly Every Day</button>
+      </div>
+    </section>
+    <section class='w-9/12 mx-auto' data-property='tired'>
+      <div class='w-3/4 mx-auto space-y-3'>
+        <p>Question 4</p>
+        <p>Over the past 2 weeks, how often have you been bothered by any of the following problems: <b>Feeling tired or having little energy?</b></p>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Not At all</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Several Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>More Than Half the Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Nearly Every Day</button>
+      </div>
+    </section>
+    <section class='w-9/12 mx-auto' data-property='appetite'>
+      <div class='w-3/4 mx-auto space-y-3'>
+        <p>Question 5</p>
+        <p>Over the past 2 weeks, how often have you been bothered by any of the following problems: <b>Poor appetite or overeating?</b></p>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Not At all</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Several Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>More Than Half the Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Nearly Every Day</button>
+      </div>
+    </section>
+    <section class='w-9/12 mx-auto' data-property='feeling-down'>
+      <div class='w-3/4 mx-auto space-y-3'>
+        <p>Question 6</p>
+        <p>Over the past 2 weeks, how often have you been bothered by any of the following problems: <b>Feeling bad about yourself - or that you're a failure or have let yourself or your family down?</b></p>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Not At all</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Several Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>More Than Half the Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Nearly Every Day</button>
+      </div>
+    </section>
+    <section class='w-9/12 mx-auto' data-property='concentration'>
+      <div class='w-3/4 mx-auto space-y-3'>
+        <p>Question 7</p>
+        <p>Over the past 2 weeks, how often have you been bothered by any of the following problems: <b>Trouble concentrating on things, such as reading the newspaper or watching television?</b></p>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Not At all</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Several Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>More Than Half the Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Nearly Every Day</button>
+      </div>
+    </section>
+    <section class='w-9/12 mx-auto' data-property='slowness'>
+      <div class='w-3/4 mx-auto space-y-3'>
+        <p>Question 8</p>
+        <p>Over the past 2 weeks, how often have you been bothered by any of the following problems: <b>Moving or speaking so slowly that other people could have noticed. Or, the opposite - being so fidgety or restless that you have been moving around a lot more than usual?</b>
+        </p>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Not At all</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Several Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>More Than Half the Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Nearly Every Day</button>
+      </div>
+    </section>
+    <section class='w-9/12 mx-auto' data-property='killing'>
+      <div class='w-3/4 mx-auto space-y-3'>
+        <p>Question 9</p>
+        <p>Over the past 2 weeks, how often have you been bothered by any of the following problems: <b>Thoughts that you would be better off dead or of hurting yourself in some way?</b>
+        </p>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Not At all</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Several Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>More Than Half the Days</button>
+        <button class='block w-full border border-sky-500 text-sky-500 font-light hover:text-white hover:bg-sky-600 text-left py-2 px-2.5'>Nearly Every Day</button>
+      </div>
+    </section>
+  </section>
+</main>
+</body>
+</html>
