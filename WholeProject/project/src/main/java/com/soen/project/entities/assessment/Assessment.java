@@ -11,7 +11,7 @@ public class Assessment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "json_reponses", nullable = false)
+    @Column(name = "json_reponses",length=5000, nullable = false)
     private String jsonResponses;
 
     @Column(name = "patient_id", nullable = false)
