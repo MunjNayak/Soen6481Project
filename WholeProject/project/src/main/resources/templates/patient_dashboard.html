@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/tailwind-40184043.css" th:href="@{/css/tailwind-40184043.css}" />
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}" />
+    <script src="../static/js/cute-alert.js" th:src="@{/js/cute-alert.js}"></script>
+    <script src="../static/js/patient_dashboard.js" th:src="@{/js/patient_dashboard.js}" defer></script>
+    <title>CareConnect Portal Login: Patient Dashboard</title>
+  </head>
+  <body class="layout-page bg-gray-200">
+    <div class="header flex px-5 items-center justify-between bg-blue-700 text-white w-full z-10">
+      <span class="username">Hello User</span>
+      <h1 style="margin-left: 600px;font-size: 30px;position: fixed;"><b>CareConnect</b></h1>
+        <button class="text-white logout text-right w-32">Sign Out</button>
+    </div>
+    <div class="main p-5 my-4 mx-auto bg-white border border-black rounded border-opacity-25 shadow" style="width:1200px">
+      <div class="main-nav font-light text-gray-500 text-xl mt-6 font-semibold">
+        <a href="#" class="inline mx-5">Self-assessment</a>
+        <a href="#" class="inline" style="pointer-events: none">My Appointment</a>
+      </div>
+      <div id="assessmentContents" class="w-full md:w-250 main py-20 grid mx-auto place-content-center hidden"></div>
+      <div class="appointments w-full md:w-250 main py-20 grid mx-auto place-content-center hidden">
+        <div class="">
+          <table>
+            <thead class="bg-gray-50">
+            <tr>
+              <th class="px-6 py-2 text-xs text-gray-500">
+                Date
+              </th>
+              <th class="px-6 py-2 text-xs text-gray-500">
+                Time
+              </th>
+              <th class="px-6 py-2 text-xs text-gray-500">
+                Status
+              </th>
+              <th class="px-6 py-2 text-xs text-gray-500">
+                Professional Type
+              </th>
+              <th class="px-6 py-2 text-xs text-gray-500">
+                Doctor/Nurse name
+              </th>
+              <th class="px-6 py-2 text-xs text-gray-500">
+                Location
+              </th>
+              <th class="px-6 py-2 text-xs text-gray-500">
+                Comments
+              </th>
+              <th class="cancelTH px-6 py-2 text-xs text-gray-500">
+                Manage
+              </th>
+            </tr>
+            </thead>
+            <tbody id="tableBody" class="bg-white">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
