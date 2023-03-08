@@ -80,7 +80,8 @@ public class LoginAndRegisterServices implements LoginAndRegisterServicesInterfa
 
     private boolean counselorFound(HttpSession session, String email, String password) {
         Counselor counselor;
-        if ((counselor = counselorRepository.findByEmail(email)) != null && counselor.isActivated() && passwordChecker(counselor, password)) {
+        // TODO: Please add the this check of activate in if condition " counselor.isActivated() &&"
+        if ((counselor = counselorRepository.findByEmail(email)) != null && passwordChecker(counselor, password)) {
             session.setAttribute(USER_TYPE, UserTypes.COUNSELOR);
             session.setAttribute(USER, counselor);
             return true;
@@ -90,7 +91,8 @@ public class LoginAndRegisterServices implements LoginAndRegisterServicesInterfa
 
     private boolean doctorFound(HttpSession session, String email, String password) {
         Doctor doctor;
-        if ((doctor = doctorRepository.findByEmail(email)) != null && doctor.isActivated() &&  passwordChecker(doctor, password)) {
+        // TODO: Please add the this check of activate in if condition "doctor.isActivated() &&"
+        if ((doctor = doctorRepository.findByEmail(email)) != null &&  passwordChecker(doctor, password)) {
             session.setAttribute(USER_TYPE, UserTypes.DOCTOR);
             session.setAttribute(USER, doctor);
             return true;

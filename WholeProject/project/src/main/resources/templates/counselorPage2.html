@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CareConnect Portal Login: Patient Dashboard</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/tailwind-40184043.css" th:href="@{/css/tailwind-40184043.css}"/>
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}" />
+    <script src="../static/js/cute-alert.js" th:src="@{/js/cute-alert.js}"></script>
+    <script type="text/javascript" src="../static/js/counselor.js" th:src="@{/js/counselor.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body class="layout-page bg-gray-200">
+<div class="header flex px-5 items-center justify-between bg-blue-700 text-white w-full z-10">
+    <span class="inline-block username">Hello User</span>
+    <h1 style="margin-left: 600px;font-size: 30px;position: fixed;"><b>CareConnect</b></h1>
+    <button onclick="logout()" class="text-white text-right w-32">Sign Out</button>
+</div>
+<div id="subMain" class="relative main-nav p-5 my-4 mx-auto bg-white border border-black rounded border-opacity-25 shadow" style="width:1200px">
+    <div class="main-nav font-light text-gray-500 text-xl mt-6 font-semibold">
+        <a href="#" onclick="showPatients()" class="inline mx-5 patLink"  style="pointer-events: none">Patients List</a>
+        <a href="#" onclick="showAppointments()" class="inline appLink" style="pointer-events: none">My Appointments</a>
+    </div>
+    <div id="patients" class="w-full md:w-250 main py-20 grid mx-auto place-content-center hidden">
+        <div id ="patientsTopDiv">
+            <div class="flex items-center justify-center mb-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input type="text" id="searchBar" placeholder="search"
+                       class="w-2/5 py-2 border-b-2 border-blue-400 outline-none focus:border-green-400">
+            </div>
+            <table>
+                <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-2 text-xs text-gray-500">
+                        Name
+                    </th>
+                    <th class="px-6 py-2 text-xs text-gray-500">
+                        Email
+                    </th>
+                    <th class="px-6 py-2 text-xs text-gray-500">
+                        Date of Birth
+                    </th>
+                    <th class="px-6 py-2 text-xs text-gray-500">
+                        Self-Assessment
+                    </th>
+                    <th class="px-6 py-2 text-xs text-gray-500">
+                        Manage Patient
+                    </th>
+                </tr>
+                </thead>
+                <tbody id="tableBody" class="bg-white">
+                </tbody>
+            </table>
+        </div>
+        <div class="overlayDiv hidden">
+            <div class="appointment-overlay text-sm lg:text-base border border-black rounded border-opacity-25 shadow w-2/3 mx-auto p-10 mt-10">
+                <div class="appointment-controls">
+                    <h3 class="text-center">Select doctor/counselor and date to view available appointments.</h3>                   <h5 class="my-3">Assign to</h5>
+                    <div class="grid grid-cols-2 gap-x-2">
+                        <select name="assignee-type-selector" id="assignee-type-selector"
+                                class="border border-gray-300 rounded-md px-2 py-1 bg-white text-gray-700 text-center">
+                            <option value="" disabled selected>Counselor or Doctor</option>
+                            <option value="counselor">Counselor</option>
+                            <option value="doctor">Doctor</option>
+                        </select>
+                        <select name="assignee-name" id="assignee-name"
+                                class="border border-gray-300 rounded-md px-2 py-1 bg-white text-gray-700 text-center">
+                            <option value="" disabled selected></option>
+                        </select>
+                    </div>
+                    <h5 class="my-3">Time</h5>
+                    <div class="grid grid-cols-2 gap-x-2">
+                        <input type="date" name="appointment-date" id="appointment-date"
+                               class="date-picker border border-gray-300 rounded-md text-center px-2 py-1 text-gray-700"/>
+                        <select name="time-slot-selector" id="time-slot-selector"
+                                class="time-picker text-center border border-gray-300 rounded-md px-2 py-1 bg-white text-gray-700 disabled">
+                        </select>
+                    </div>
+                    <button class="createAppointment block bg-blue-500 text-white w-52 py-1 mt-6 mx-auto rounded disabled">Arrange Appointment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="appointments" class="w-full md:w-250 main py-20 grid mx-auto place-content-center hidden">
+        <div>
+            <table class="">
+                <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-2 text-xs text-gray-500">
+                        Date
+                    </th>
+                    <th class="px-6 py-2 text-xs text-gray-500">
+                        Time
+                    </th>
+                    <th class="px-6 py-2 text-xs text-gray-500">
+                        Patient Name
+                    </th>
+                    <th class="px-6 py-2 text-xs text-gray-500">
+                        Self-Assessment
+                    </th>
+                    <th class="px-6 py-2 text-xs text-gray-500">
+                        Manage Appointment
+                    </th>
+                </tr>
+                </thead>
+                <tbody id="tableBody2" class="bg-white">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="userInfoDiv" class="w-full md:w-250 main py-20 grid mx-auto place-content-center hidden">
+        <div class="w-full md:w-150 grid justify-items-center bg-white gap-5 pt-10 pb-10 z-10 border border-black rounded border-opacity-25 shadow" id="userInfo">
+            <div class="w-11/12 -my-1">
+                <img src="../static/img/close.png" th:src="@{/img/close.png}" class="closeUserInfoBtn float-right h-5"/>
+            </div>
+            <div class="block text-2xl tracking-wide text-gray-600 font-semibold userInfoName">FirstName LastName</div>
+            <label class="block text-gray-600 justify-self-start ml-8 md:ml-12">Address</label>
+            <input type="text" name="address" id="address" placeholder="Address" class="block w-10/12 border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " disabled/>
+            <div class="grid grid-cols-3 gap-2 w-10/12">
+                <input type="text" name="city" id="city" placeholder="City" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide "disabled />
+                <input type="text" name="postalCode" id="postalCode" placeholder="Postal Code" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide "disabled />
+                <input type="text" name="Province" id="province" placeholder="province" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " disabled/>
+            </div>
+            <label class="block text-gray-600 justify-self-start ml-8 md:ml-12">Date Of Birth</label>
+            <div class="grid grid-cols-3 gap-2 w-10/12">
+                <input type="text" name="dayOfBirth" id="dayOfBirth" placeholder="dayOfBirth" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " disabled/>
+                <input type="text" name="monthOfBirth" id="monthOfBirth" placeholder="monthOfBirth" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide "disabled />
+                <input type="text" name="yearOfBirth" id="yearOfBirth" placeholder="yearOfBirth" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " disabled/>
+            </div>
+            <label class="block text-gray-600 justify-self-start ml-8 md:ml-12">Contact Information</label>
+            <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone number" class="block border border-gray-300 rounded-md h-9 w-10/12 p-2 text-sm tracking-wide "disabled />
+            <input type="text" name="email" id="email" placeholder="Email" class="block border border-gray-300 rounded-md h-9 w-10/12 p-2 text-sm tracking-wide "disabled />
+            <label for="user" class="block text-gray-600 justify-self-start ml-8 md:ml-12">User type</label>
+            <input type="text" name="user" id="user" placeholder="user" class="w-10/12 border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide "disabled />
+            <button id="deleteUserBtn" class="w-9/12 bg-red-500 h-9 w-48 p-2 mt-4 shadow-md text-sm font-light text-gray-100">Delete</button>
+        </div>
+    </div>
+    <div class="flex justify-center mx-auto">
+        <ul class="flex absolute bottom-12 navBarBottom">
+            <li>
+                <p class="text-gray-600 mx-3 my-1">Total: <span class="numUsers"> 0 </span>   <span class="usersOrAppointmentsSpan"> users </span> </p>
+            </li>
+            <li><button
+                    class="lArrow h-8 w-8 text-gray-600 bg-white border border-x-0 border-grey-600 hover:border-blue-600 hover:bg-blue-100 mx-1"> < </button>
+            </li>
+            <li><button
+                    class="h-8 w-8 text-gray-600 bg-white border border-x-0 border-grey-600 hover:border-blue-600 hover:bg-blue-100 mx-1"> 1 </button>
+            </li>
+            <li><button class="rArrow h-8 w-8 text-gray-600 bg-white border border-x-0 border-grey-600 hover:border-blue-600 hover:bg-blue-100 mx-1"> > </button>
+            </li>
+            <li>
+                <p class="text-gray-600 mx-1 my-1 inline my-1">Jump to page:</p>
+                <select class="inline selectPage text-gray-600 bg-white mx-1 my-1">
+                </select>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="footer flex items-center justify-center text-xs text-darkgray z-10">SOEN 6841 TeamC &copy; 2021</div>
+</body>
+</html>

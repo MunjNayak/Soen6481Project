@@ -65,7 +65,7 @@ document.addEventListener('html_injected', (event) => {
             const date = appointment['appDate'] == null ? "" : appointment['appDate'];
             const time = appointment['time'] == null ? "" : appointment['time'];
             const status = appointment['status'];
-            const profType = appointment['withNurse'] === null ? "" : appointment['withNurse'] === true ? "Nurse" : "Doctor";
+            const profType = appointment['withCounselor'] === null ? "" : appointment['withCounselor'] === true ? "Counselor" : "Doctor";
             const profName = appointment['medicalWorkerName'] === null ? "" : appointment['medicalWorkerName'];
             const location = date === "" ? "" : "main clinic";
             const comments = appointment['message'];

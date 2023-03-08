@@ -35,7 +35,8 @@ function addBlackBorder(field) {
 
 function displayRegField() {
     const select = document.getElementById("user");
-    if (select.value === 'nurse' || select.value === 'doctor') {
+    console.log(select.value);
+    if (select.value === 'counselor' || select.value === 'doctor') {
         document.getElementById("registration").type = 'text';
     } else {
         document.getElementById("registration").type = 'hidden';
@@ -50,8 +51,8 @@ function regButton() {
         case "patient":
             regPatient();
             break;
-        case "nurse":
-            regNurse();
+        case "counselor":
+            regCounselor();
             break;
         case "doctor":
             regDoctor();
@@ -88,10 +89,10 @@ function regPatient() {
     });
 }
 
-function regNurse() {
+function regCounselor() {
     const form = document.getElementById("regForm");
     const data = Object.fromEntries(new FormData(form).entries());
-    postData(baseURL + "/" + "nurse", data).then(response => {
+    postData(baseURL + "/" + "counselor", data).then(response => {
         handlePostResponse(response, true);
         return response.json();
     }).then(data => {
