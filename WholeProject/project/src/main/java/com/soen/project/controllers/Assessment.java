@@ -15,7 +15,7 @@ public class Assessment {
     @Autowired
     AssessmentServices assessmentServices;
 
-    @GetMapping(value = "/templates/assessment_content.html")
+    @GetMapping(value = "/templates/patient-assessment.html")
     public String getAssessmentContent(){
         return "assessment_content";
     }
