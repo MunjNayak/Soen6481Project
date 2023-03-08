@@ -91,7 +91,7 @@ public class UserCreation {
     private final List<String> months =
             List.of("January","February","March","April","May","June","July","August","September","October","November","December");
 
-    public UserCreation(@Value("${initializeUsers}") String initializeUsers){
+    public UserCreation(@Value("true") String initializeUsers){
         this.initializeUsers = Boolean.parseBoolean(initializeUsers);
     }
 

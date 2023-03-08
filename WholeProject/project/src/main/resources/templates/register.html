@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../static/css/tailwind-40184043.css" th:href="@{/css/tailwind-40184043.css}" />
+  <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}" />
+  <script src="../static/js/cute-alert.js" th:src="@{/js/cute-alert.js}"></script>
+  <script type="text/javascript" src="../static/js/register.js" th:src="@{/js/register.js}"></script>
+  <title>COVID-19 Appointment Portal: Register</title>
+</head>
+<body class="layout-page">
+<div class="header flex px-5 items-center justify-between bg-themeBlue text-white w-full z-10">
+  <h1 style="margin:auto;font-size: 30px"><b>CareConnect</b></h1>
+  <div class="grid grid-cols-2 w-1/12">
+    <a href="#" onclick="goToLoginPage()">Sign in</a>
+  </div>
+</div>
+<div class="main bg-gray-100 grid justify-items-center items-center">
+  <form class="w-full md:w-150 grid justify-items-center bg-white gap-5 pt-10 pb-10 z-10" id="regForm" onsubmit="return false">
+    <span class="block text-3xl tracking-wide text-gray-600">Register</span>
+    <div class="grid grid-cols-2 gap-2 w-10/12">
+      <input type="text" name="firstName" id="firstName" placeholder="First name" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide" />
+      <input type="text" name="lastName" id="lastName" placeholder="Last name" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " />
+    </div>
+    <input type="text" name="address" id="address" placeholder="Address" class="block w-10/12 border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " />
+    <div class="grid grid-cols-3 gap-2 w-10/12">
+      <input type="text" name="city" id="city" placeholder="City" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " />
+      <input type="text" name="postalCode" id="postalCode" placeholder="Postal Code" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " />
+      <select name="province" id="province" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide ">
+        <option value="" disabled selected>Province</option><option>Quebec</option><option>Ontario</option><option>Nova Scotia</option><option>New Brunswick</option><option>Manitoba</option><option>British Columbia</option>
+        <option>Prince Edward Island</option>Saskatchewan<option>Alberta</option><option>Newfoundland and Labrador</option>Northwest Territories<option>Yukon</option><option>Nunavut</option>
+      </select>
+    </div>
+    <label for="dob" class="block text-gray-600 justify-self-start ml-8 md:ml-12">Date Of Birth</label>
+    <div class="grid grid-cols-3 gap-2 w-10/12">
+      <select name="dayOfBirth" id="dayOfBirth" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide ">
+        <option value="" disabled selected>Day</option>
+      </select>
+      <select name="monthOfBirth" id="monthOfBirth" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide ">
+        <option value="" disabled selected>Month</option>
+        <option>January</option><option>February<option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November<option>December</option>
+      </select>
+      <select name="yearOfBirth" id="yearOfBirth" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide ">
+        <option value="" disabled selected>Year</option>
+      </select>
+    </div>
+    <input type="password" name="password" id="password" placeholder="Password" class="block w-10/12 border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " />
+    <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone number" class="block border border-gray-300 rounded-md h-9 w-10/12 p-2 text-sm tracking-wide " />
+    <input type="text" name="email" id="email" placeholder="Email" class="block border border-gray-300 rounded-md h-9 w-10/12 p-2 text-sm tracking-wide " />
+    <label for="user" class="block text-gray-600 justify-self-start ml-8 md:ml-12">User type</label>
+    <select name="user" id="user" onchange="displayRegField()" class="block w-10/12 border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide ">
+      <option value="" disabled selected>User Type</option>
+      <option value="patient">Patient</option>
+      <option value="nurse">Nurse</option>
+      <option value="doctor">Doctor</option>
+    </select>
+    <input type="hidden" name="registration" id="registration" placeholder="Registration Number" class="block border border-gray-300 rounded-md h-9 w-10/12 p-2 text-sm tracking-wide " />
+    <button type="submit" id="signUpButton" onclick="regButton();" class="w-9/12 bg-themeBlue rounded-md h-9 p-2 text-sm tracking-wide font-light text-gray-100">Sign up</button>
+    <p class="px-4 md:p-0 text-gray-400 text-xs font-extralight">By signing up, you agree to our <span class="text-lightblue">Terms</span>, <span class="text-lightblue">Cookies policy</span> and <span class="text-lightblue">Data policy</span>.</p>
+  </form>
+</div>
+</body>
+</html>
