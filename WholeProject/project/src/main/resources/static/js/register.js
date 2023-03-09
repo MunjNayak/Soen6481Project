@@ -35,7 +35,6 @@ function addBlackBorder(field) {
 
 function displayRegField() {
     const select = document.getElementById("user");
-    console.log(select.value);
     if (select.value === 'counselor' || select.value === 'doctor') {
         document.getElementById("registration").type = 'text';
     } else {

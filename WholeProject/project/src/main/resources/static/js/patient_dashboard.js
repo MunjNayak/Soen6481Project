@@ -19,7 +19,7 @@ document.addEventListener('html_injected', (event) => {
     const logoutBtn = document.querySelector(".logout");
 
     // --- Content containers ---
-    const questionDivs = document.querySelectorAll("[data-ques]");
+    const questionDivs = document.querySelectorAll("[data-options]");
     const mainAssessmentDiv = document.querySelector(".assessment-content");
     const otherQuestionsDive = document.querySelector(".other-questions");
     const appointmentsDiv = document.querySelector(".appointments");
@@ -200,7 +200,7 @@ document.addEventListener('html_injected', (event) => {
 
     const unhideInitialDivs = () => {
         mainAssessmentDiv.classList.remove("hidden");
-        otherQuestionsDive.classList.remove("hidden");
+        // otherQuestionsDive.classList.remove("hidden");
     }
 
     const hideSubmitButton = () => {
@@ -264,12 +264,14 @@ document.addEventListener('html_injected', (event) => {
         assessmentMap.forEach((val, key) => {
             const questNum = String(val[0]);
             const activeButtonNum = val[1];
+            console.log(questNum, activeButtonNum);
             for (const question of questionDivs) {
-                if(question.getAttribute("data-ques") === questNum){
-                    question.classList.remove("hidden");
-                    const response = question.querySelector("button:nth-of-type("+ activeButtonNum +")").innerHTML;
-                    appendPara(response, question);
-                    hideButtons(question);
+                if(question.getAttribute("data-options") === questNum+" "+activeButtonNum){
+                    // question.classList.remove("hidden");
+                    question.style.backgroundColor="blue";
+                    // const response = question.querySelector("button:nth-of-type("+ activeButtonNum +")").innerHTML;
+                    // appendPara(response, question);
+                    // hideButtons(question);
                 }
             }
         })
