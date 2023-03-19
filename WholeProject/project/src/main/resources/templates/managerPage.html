@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>COVID-19 Appointment Portal Login: Manager Dashboard</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/tailwind-40184043.css" th:href="@{/css/tailwind-40184043.css}"/>
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}" />
+    <script src="../static/js/cute-alert.js" th:src="@{/js/cute-alert.js}"></script>
+    <script type="text/javascript" src="../static/js/manager.js" th:src="@{/js/manager.js}" defer></script>
+    <script type="text/javascript" src="../static/js/graph.js" th:src="@{/js/graph.js}" defer></script>
+</head>
+<body class="layout-page bg-gray-200">
+<div class="header flex px-5 items-center justify-between bg-blue-700 text-white w-full z-10">
+    <img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="OERJAM logo" class="h-8 w-32"/>
+    <span class="inline-block username">Manager Dashboard</span>
+    <button onclick="logout()" class="text-white text-right w-32">Sign Out</button>
+</div>
+<div id="subMain" class="relative main-nav p-5 my-4 mx-auto bg-white border border-black rounded border-opacity-25 shadow" style="width:1200px">
+    <div class="main-nav font-light text-gray-500 text-xl font-semibold mx-5 mt-6">
+        <select class="userLists font-semibold mx-5">
+            <option disabled selected class="font-semibold">User List</option>
+            <option class="font-semibold">Patient List</option>
+            <option class="font-semibold">Counselor List</option>
+            <option class="font-semibold">Doctor List</option>
+        </select>
+        <a href="#" class="inline viewReportLink mx-5">View Report</a>
+    </div>
+    <div id="usersDiv" class="w-full md:w-250 main py-20 grid mx-auto place-content-center hidden">
+        <div class="relative">
+            <button class="addButton float-right text-sm w-16 shadow-md py-1 -mt-6 mb-5 text-white rounded-sm bg-blue-700">Add</button>
+        </div>
+        <div class="flex searchDiv items-center justify-center mb-10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input type="text" id="searchBar" placeholder="search"
+                   class="w-1/2 py-2 border-b-2 border-blue-400 outline-none focus:border-green-400">
+        </div>
+        <table class="userTable">
+            <thead class="bg-gray-50">
+            <tr>
+                <th class="px-6 py-2 text-xs text-gray-500">
+                    Name
+                </th>
+                <th class="px-6 py-2 text-xs text-gray-500">
+                    Email
+                </th>
+                <th class="px-6 py-2 text-xs text-gray-500">
+                    Date Created
+                </th>
+                <th class="px-6 py-2 text-xs text-gray-500">
+                    Manage Operation
+                </th>
+            </tr>
+            </thead>
+            <tbody id="tableBody" class="bg-white">
+            </tbody>
+        </table>
+        <form class="w-full md:w-150 grid justify-items-center bg-white gap-5 pt-10 pb-10 z-10 border border-black rounded border-opacity-25 shadow hidden" id="regForm" onsubmit="return false">
+            <div class="w-11/12 -my-1">
+                <img src="../static/img/close.png" th:src="@{/img/close.png}" class="closeUserAddDiv float-right h-5"/>
+            </div>
+            <span class="block text-3xl tracking-wide text-gray-600">Manager User Creation</span>
+            <div class="grid grid-cols-2 gap-2 w-10/12">
+                <input type="text" name="firstName" id="firstName" placeholder="First name" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide" />
+                <input type="text" name="lastName" id="lastName" placeholder="Last name" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " />
+            </div>
+            <input type="text" name="address" id="address" placeholder="Address" class="block w-10/12 border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " />
+            <div class="grid grid-cols-3 gap-2 w-10/12">
+                <input type="text" name="city" id="city" placeholder="City" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " />
+                <input type="text" name="postalCode" id="postalCode" placeholder="Postal Code" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " />
+                <select name="province" id="province" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide ">
+                    <option value="" disabled selected>Province</option><option>Quebec</option><option>Ontario</option><option>Nova Scotia</option><option>New Brunswick</option><option>Manitoba</option><option>British Columbia</option>
+                    <option>Prince Edward Island</option>Saskatchewan<option>Alberta</option><option>Newfoundland and Labrador</option>Northwest Territories<option>Yukon</option><option>Nunavut</option>
+                </select>
+            </div>
+            <label for="dob" class="block text-gray-600 justify-self-start ml-8 md:ml-12">Date Of Birth</label>
+            <div class="grid grid-cols-3 gap-2 w-10/12">
+                <select name="dayOfBirth" id="dayOfBirth" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide ">
+                    <option value="" disabled selected>Day</option>
+                </select>
+                <select name="monthOfBirth" id="monthOfBirth" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide ">
+                    <option value="" disabled selected>Month</option>
+                    <option>January</option><option>February<option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November<option>December</option>
+                </select>
+                <select name="yearOfBirth" id="yearOfBirth" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide ">
+                    <option value="" disabled selected>Year</option>
+                </select>
+            </div>
+            <input type="password" name="password" id="password" placeholder="Password" class="block w-10/12 border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " />
+            <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone number" class="block border border-gray-300 rounded-md h-9 w-10/12 p-2 text-sm tracking-wide " />
+            <input type="text" name="email" id="email" placeholder="Email" class="block border border-gray-300 rounded-md h-9 w-10/12 p-2 text-sm tracking-wide " />
+            <label for="user" class="block text-gray-600 justify-self-start ml-8 md:ml-12">User type</label>
+            <select name="user" id="user" onchange="displayRegField()" class="block w-10/12 border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide ">
+                <option value="" disabled selected>User Type</option>
+                <option value="patient">Patient</option>
+                <option value="counselor">Counselor</option>
+                <option value="doctor">Doctor</option>
+            </select>
+            <input type="hidden" name="registration" id="registration" placeholder="Registration Number" class="block border border-gray-300 rounded-md h-9 w-10/12 p-2 text-sm tracking-wide " />
+            <button id="signUpButton" onclick="regButton();" class="w-9/12 bg-themeBlue rounded-md h-9 p-2 text-sm tracking-wide font-light text-gray-100">Register User</button>
+        </form>
+    </div>
+    <div id="userInfoDiv" class="w-full md:w-250 main py-20 grid mx-auto place-content-center hidden">
+        <div class="w-full md:w-150 grid justify-items-center bg-white gap-5 pt-10 pb-10 z-10 border border-black rounded border-opacity-25 shadow" id="userInfo">
+            <div class="w-11/12 -my-1">
+                <img src="../static/img/close.png" th:src="@{/img/close.png}" class="closeUserInfoBtn float-right h-5"/>
+            </div>
+            <div class="block text-2xl tracking-wide text-gray-600 font-semibold userInfoName">FirstName LastName</div>
+            <label class="block text-gray-600 justify-self-start ml-8 md:ml-12">Address</label>
+            <input type="text" name="address" id="address2" placeholder="Address" class="block w-10/12 border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " disabled/>
+            <div class="grid grid-cols-3 gap-2 w-10/12">
+                <input type="text" name="city" id="city2" placeholder="City" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide "disabled />
+                <input type="text" name="postalCode" id="postalCode2" placeholder="Postal Code" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide "disabled />
+                <input type="text" name="Province" id="province2" placeholder="province" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " disabled/>
+            </div>
+            <label class="block text-gray-600 justify-self-start ml-8 md:ml-12">Date Of Birth</label>
+            <div class="grid grid-cols-3 gap-2 w-10/12">
+                <input type="text" name="dayOfBirth" id="dayOfBirth2" placeholder="dayOfBirth" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " disabled/>
+                <input type="text" name="monthOfBirth" id="monthOfBirth2" placeholder="monthOfBirth" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide "disabled />
+                <input type="text" name="yearOfBirth" id="yearOfBirth2" placeholder="yearOfBirth" class="border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide " disabled/>
+            </div>
+            <label class="block text-gray-600 justify-self-start ml-8 md:ml-12">Contact Information</label>
+            <input type="text" name="phoneNumber" id="phoneNumber2" placeholder="Phone number" class="block border border-gray-300 rounded-md h-9 w-10/12 p-2 text-sm tracking-wide "disabled />
+            <input type="text" name="email" id="email2" placeholder="Email" class="block border border-gray-300 rounded-md h-9 w-10/12 p-2 text-sm tracking-wide "disabled />
+            <label for="user" class="block text-gray-600 justify-self-start ml-8 md:ml-12">User type</label>
+            <input type="text" name="user" id="user2" placeholder="user" class="w-10/12 border border-gray-300 rounded-md h-9 p-2 text-sm tracking-wide "disabled />
+            <button id="deleteUserBtn" class="w-9/12 bg-red-500 h-9 w-48 p-2 mt-4 shadow-md text-sm font-light text-gray-100">Delete</button>
+        </div>
+    </div>
+    <div id="reportDiv" class="w-full main py-20 mx-auto hidden">
+        <div class="text-center">
+            <p class="font-semibold mb-4">Select day for statistics report:</p>
+
+        <input type="date"
+               class="date-picker border border-gray-300 rounded-md text-center px-2 py-1 text-gray-700"/>
+        </div>
+        <div class="userStatsDiv shadow my-10 rounded overflow-hidden w-3/4 mx-auto hidden">
+            <div class="py-3 px-5 bg-gray-50">User Statistics</div>
+            <canvas class="p-10" id="chartBar1"></canvas>
+        </div>
+        <div class="assessStatsDiv shadow my-10 rounded overflow-hidden w-3/4 mx-auto hidden">
+            <div class="py-3 px-5 bg-gray-50">User Assessment Statistics</div>
+            <canvas class="p-10" id="chartBar2"></canvas>
+        </div>
+    </div>
+
+    <div class="flex justify-center mx-auto">
+        <ul class="flex absolute bottom-12 navBarBottom hidden">
+            <li>
+                <p class="text-gray-600 mx-3 my-1">Total: <span class="numUsers"> 0 </span>   <span class="usersOrAppointmentsSpan"> users </span> </p>
+            </li>
+            <li><button
+                    class="lArrow h-8 w-8 text-gray-600 bg-white border border-x-0 border-grey-600 hover:border-blue-600 hover:bg-blue-100 mx-1"> < </button>
+            </li>
+            <li><button
+                    class="h-8 w-8 text-gray-600 bg-white border border-x-0 border-grey-600 hover:border-blue-600 hover:bg-blue-100 mx-1"> 1 </button>
+            </li>
+            <li><button class="rArrow h-8 w-8 text-gray-600 bg-white border border-x-0 border-grey-600 hover:border-blue-600 hover:bg-blue-100 mx-1"> > </button>
+            </li>
+            <li>
+                <p class="text-gray-600 mx-1 my-1 inline my-1">Jump to page:</p>
+                <select class="inline selectPage text-gray-600 bg-white mx-1 my-1">
+                </select>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="footer flex items-center justify-center text-xs text-darkgray z-10">SOEN 6841 TeamC &copy; 2021</div>
+</body>
+</html>
