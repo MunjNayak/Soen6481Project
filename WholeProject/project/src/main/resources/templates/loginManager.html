@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/tailwind-40184043.css" th:href="@{/css/tailwind-40184043.css}" />
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}" />
+    <script src="../static/js/cute-alert.js" th:src="@{/js/cute-alert.js}"></script>
+    <script type="text/javascript" src="../static/js/login.js" th:src="@{/js/login.js}"></script>
+    <title>COVID-19 Appointment Portal: Manage Login</title>
+  </head>
+  <body class="layout-page">
+    <img src="../static/img/background_element_1.png" th:src="@{/img/background_element_1.png}" class="absolute z-0 bottom-14 right-96" />
+    <img src="../static/img/background_element_2.png" th:src="@{/img/background_element_2.png}" class="absolute z-0 right-80 top-12" />
+    <img src="../static/img/background_element_3.png" th:src="@{/img/background_element_3.png}" class="absolute z-0 top-28 left-20" />
+    <div class="header flex px-5 items-center justify-between bg-themeBlue text-white w-full z-10">
+      <img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="OERJAM logo" class="h-10" />
+    </div>
+    <div class="main grid lg:container lg:mx-auto lg:grid-cols-2 justify-items-center items-center z-10">
+      <img src="../static/img/doctor.png" th:src="@{/img/doctor.png}" alt="Counselor image" class="hidden lg:inline-block" />
+      <form id="loginForm" class="border bg-white border-darkgray rounded-md overflow-hidden grid justify-items-center w-5/6 gap-6 pb-24 lg:w-4/6 my-16" onsubmit="return false">
+        <div class="grid h-10 md:h-14 w-full">
+          <a href="#" id="individual" class="bg-themeBlue text-white grid items-center justify-items-center">Manager</a>
+          <!-- <a href="#" id="worker" class="bg-themeLightBlue text-white grid items-center justify-items-center active">Medical worker</a> -->
+        </div>
+        <input type="email" name="email" placeholder="email" class="block h-10 md:h-14 p-2 w-10/12 text-sm rounded-md border border-gray" />
+        <input type="password" name="password" placeholder="password" class="block h-10 md:h-14 p-2 w-10/12 text-sm rounded-md border border-gray" />
+        <button onclick="managerLoginToSystem()" class="w-10/12 block h-10 md:h-14 p-2 text-white bg-themeBlue font-extralight text-sm rounded-md mt-3">Log in</button>
+        <hr class="w-10/12 border-darkgray block h-10 md:h-14 p-2 border-b border-t-0" />
+      </form>
+    </div>
+    <div class="footer text-xs text-darkgray text-center z-10">SOEN 6841 TeamC &copy; 2021</div>
+  </body>
+</html>
