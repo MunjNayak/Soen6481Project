@@ -105,10 +105,10 @@ public class UserCreation {
         }
         return ResponseEntity.ok().build();
     }
-
+//    {"interest":"Several Days","feeling":"Several Days","sleep":"Several Days","tired":"Several Days","appetite":"Several Days","feeling-down":"Several Days","concentration":"Several Days","slowness":"Several Days","killing":"Several Days"}
     private void createManager(){
         Manager manager = Manager.builder()
-                .firstName("OERJAM")
+                .firstName("CareConnect")
                 .lastName("Manager")
                 .email("manager@gmail.com")
                 .password("manager@gmail.com")
