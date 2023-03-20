@@ -355,7 +355,7 @@ function modifyAssessmentPageForAppointmentList(appointmentContainer, oldContent
         .then(html => {
             appointmentContainer.innerHTML = html;
             document.querySelector(".assessment-content").classList.remove("hidden");
-            document.querySelector(".other-questions").classList.remove("hidden");
+            // document.querySelector(".other-questions").classList.remove("hidden");
             modifyCloseButton(appointmentContainer, oldContents);
             unhideAssessmentDivs(assessment);
             hideSubmitButton();
