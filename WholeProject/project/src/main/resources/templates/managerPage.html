@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>COVID-19 Appointment Portal Login: Manager Dashboard</title>
+    <title>Manager Dashboard</title>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -15,8 +15,8 @@
 </head>
 <body class="layout-page bg-gray-200">
 <div class="header flex px-5 items-center justify-between bg-blue-700 text-white w-full z-10">
-    <img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="OERJAM logo" class="h-8 w-32"/>
     <span class="inline-block username">Manager Dashboard</span>
+    <h1 style="margin-left: 600px;font-size: 30px;position: fixed;"><b>CareConnect</b></h1>
     <button onclick="logout()" class="text-white text-right w-32">Sign Out</button>
 </div>
 <div id="subMain" class="relative main-nav p-5 my-4 mx-auto bg-white border border-black rounded border-opacity-25 shadow" style="width:1200px">
@@ -138,8 +138,8 @@
         <div class="text-center">
             <p class="font-semibold mb-4">Select day for statistics report:</p>
 
-        <input type="date"
-               class="date-picker border border-gray-300 rounded-md text-center px-2 py-1 text-gray-700"/>
+            <input type="date"
+                   class="date-picker border border-gray-300 rounded-md text-center px-2 py-1 text-gray-700"/>
         </div>
         <div class="userStatsDiv shadow my-10 rounded overflow-hidden w-3/4 mx-auto hidden">
             <div class="py-3 px-5 bg-gray-50">User Statistics</div>
@@ -172,6 +172,5 @@
         </ul>
     </div>
 </div>
-<div class="footer flex items-center justify-center text-xs text-darkgray z-10">SOEN 6841 TeamC &copy; 2021</div>
 </body>
 </html>
