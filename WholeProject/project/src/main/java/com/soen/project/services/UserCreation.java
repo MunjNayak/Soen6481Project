@@ -83,9 +83,9 @@ public class UserCreation {
             "ORR", "STUART", "BAXTER", "FORREST", "BENNETT", "MCPHERSON", "MOFFAT", "MORTON", "GIBB", "DRUMMOND");
 
     private final List<String> assessments = List.of(
-            "{\"1\":2,\"2\":2,\"4\":1,\"8\":1,\"9\":2,\"10\":1,\"11\":2}",
-            "{\"1\":2,\"2\":1,\"3\":1,\"8\":2,\"9\":2,\"10\":2,\"11\":2}",
-            "{\"1\":1,\"9\":2,\"10\":2,\"11\":1}"
+            "{\"interest\":\"More Than Half the Days\",\"feeling\":\"Several Days\",\"sleep\":\"Nearly Every Day\",\"tired\":\"Several Days\",\"appetite\":\"More Than Half the Days\",\"feeling-down\":\"Several Days\",\"concentration\":\"Nearly Every Day\",\"slowness\":\"More Than Half the Days\",\"killing\":\"Several Days\"}",
+            "{\"interest\":\"Nearly Every Day\",\"feeling\":\"Several Days\",\"sleep\":\"More Than Half the Days\",\"tired\":\"Several Days\",\"appetite\":\"Nearly Every Day\",\"feeling-down\":\"More Than Half the Days\",\"concentration\":\"Several Days\",\"slowness\":\"Nearly Every Day\",\"killing\":\"More Than Half the Days\"}",
+            "{\"interest\":\"Not At all\",\"feeling\":\"Several Days\",\"sleep\":\"Several Days\",\"tired\":\"More Than Half the Days\",\"appetite\":\"More Than Half the Days\",\"feeling-down\":\"Nearly Every Day\",\"concentration\":\"Several Days\",\"slowness\":\"More Than Half the Days\",\"killing\":\"Several Days\"}"
     );
 
     private final List<String> months =
