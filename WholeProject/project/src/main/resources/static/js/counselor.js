@@ -352,17 +352,20 @@ function modifyAssessmentCloseButton(container, oldContents) {
 
 const unhideAssessmentDivs = (assessment) => {
     const assessmentMap = Object.entries(assessment);
-    const questionDivs = document.querySelectorAll("[data-ques]");
+    // const questionDivs = document.querySelectorAll("[data-ques]");
 
     assessmentMap.forEach((val, key) => {
         const questNum = String(val[0]);
         const activeButtonNum = val[1];
+        console.log(questNum, activeButtonNum);
+        const questionDivs = document.querySelectorAll("[data-options]");
         for (const question of questionDivs) {
-            if(question.getAttribute("data-ques") === questNum){
-                question.classList.remove("hidden");
-                const response = question.querySelector("button:nth-of-type("+ activeButtonNum +")").innerHTML;
-                appendPara(response, question);
-                hideButtons(question);
+            if(question.getAttribute("data-options") === questNum+" "+activeButtonNum){
+                // question.classList.remove("hidden");
+                question.style.backgroundColor="blue";
+                // const response = question.querySelector("button:nth-of-type("+ activeButtonNum +")").innerHTML;
+                // appendPara(response, question);
+                // hideButtons(question);
             }
         }
     })
