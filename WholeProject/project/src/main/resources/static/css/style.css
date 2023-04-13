@@ -1,6 +1,84 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
 
+#dashboard{
+
+  background-image: url("../img/assessement.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.main-nav a {
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.page {
+  position: relative;
+  z-index: 1;
+  /* add other background image properties */
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/careconnect.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4; /* adjust this value to your desired opacity */
+  z-index: -1;
+}
+
+.loginmanage {
+  position: relative;
+  z-index: 1;
+  /* add other background image properties */
+}
+
+.loginmanage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/loginmanger.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4; /* adjust this value to your desired opacity */
+  z-index: -1;
+}
+
+
+
+#loginForm{
+
+  opacity: 0.9;
+}
+
+#regForm{
+
+  opacity: 0.9;
+}
 .alert-wrapper {
     display: flex;
     width: 100%;

@@ -76,6 +76,10 @@ document.addEventListener('html_injected', (event) => {
             addCancelButton(status);
         });
         appointmentsDiv.classList.remove('hidden');
+        document.getElementById('dashboard').style.backgroundImage = 'none';
+        document.getElementById("dashboard").style.backgroundColor = "";
+
+
     }
 
     const getAppointment = () => {
@@ -185,6 +189,10 @@ document.addEventListener('html_injected', (event) => {
             unhideAssessmentDivs(assessment);
         });
         document.getElementById('assessmentContents').classList.remove("hidden");
+        document.getElementById('dashboard').style.backgroundImage = 'none';
+        document.getElementById("dashboard").style.backgroundColor = "";
+
+
     };
 
     const getAssessment = () => {
