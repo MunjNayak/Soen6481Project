@@ -1,2 +1,3 @@
 # soen6481Project
-Group Project of Soen6481 for Winter 2023
+
+CareConnect is a medical appointment and initial assessment Mental Health application built on Spring (java).
